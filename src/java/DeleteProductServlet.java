@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
-import org.apache.taglibs.standard.functions.Functions;
 /**
  *
  * @author Sarah.Mohamed

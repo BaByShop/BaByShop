@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 21, 2014 5:50:48 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dto.User" table="user" catalog="babyshop">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="fname" type="string">
+            <column name="fname" length="45" not-null="true" />
+        </property>
+        <property name="lname" type="string">
+            <column name="lname" length="45" not-null="true" />
+        </property>
+        <property name="displayname" type="string">
+            <column name="displayname" length="100" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="100" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" not-null="true" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="500" />
+        </property>
+        <property name="birthdate" type="date">
+            <column name="birthdate" length="10" />
+        </property>
+        <property name="job" type="string">
+            <column name="job" length="100" />
+        </property>
+        <property name="credit" type="double">
+            <column name="credit" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="active" type="boolean">
+            <column name="Active" not-null="true" />
+        </property>
+        <set name="purchases" table="purchase" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="dto.Purchase" />
+        </set>
+        <set name="interests" table="user_has_interest" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="dto.Interest">
+                <column name="interest_id" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
