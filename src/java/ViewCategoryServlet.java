@@ -7,6 +7,10 @@
 
 //put the arrayList as an attribute on the request
 //send redirect to viewCategory.jsp
+//get all products related to this category
+//add them to a list array of product objects
+//sendredirect to viewProducts.jsp
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
