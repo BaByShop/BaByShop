@@ -77,7 +77,7 @@
                                 <script>
                                  function logout()
                                  {
-                                     location.href('login.html');
+                                     location.href('login.jsp');
                                  }
                                 </script>
 				<!-- user dropdown ends -->

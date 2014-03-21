@@ -57,13 +57,6 @@
         
 		
 </head>
-<script>
-    function cancelAdd()
-    {
-        location.href('admin_products.jsp');
-    }
-    
-</script>
 <body>
 		<!-- topbar starts -->
 	<div class="navbar">
@@ -100,7 +93,7 @@
 						
 					</div>
                                        <div class="box-content">
-                                           <form  action="Home.jsp"class="form-horizontal">
+                                           <form  action="redirect.jsp" class="form-horizontal">
                                              <fieldset>
                                                       <br><br>  
 					            
@@ -109,7 +102,7 @@
 								  <label class="control-label" for="focusedInput">Product name</label>   
                                                                   <div class="controls">
                                                                    
-                                                                  <input class="input-xlarge focused" id="productName" type="text" >
+                                                                  <input class="input-xlarge focused" NAME="title" type="text" >
                                                                   </div>
                                                                   
                                                                   
@@ -119,7 +112,7 @@
 								  <label class="control-label" for="focusedInput">Serial No.</label>   
                                                                   <div class="controls">
                                                                    
-                                                                  <input class="input-xlarge focused" id="productName" type="text" >
+                                                                  <input class="input-xlarge focused" NAME="id" type="text" >
                                                                   </div>
                                                                   
                                                                   
@@ -128,46 +121,46 @@
 								  <label class="control-label" for="focusedInput">Product Description</label>   
                                                                   <div class="controls">
                                                                    
-                                                                  <textarea class="input-xlarge focused" id="productdesc" type="text" ></textarea>
+                                                                  <textarea class="input-xlarge focused" NAME="description" type="text" ></textarea>
                                                                   </div>    
 						     </div> 
                                                      <div class="control-group">								
 								  <label class="control-label" for="focusedInput">Number of units</label>   
                                                                   <div class="controls">
                                                                    
-                                                                  <input class="input-xlarge focused" id="productdesc" type="text" >
+                                                                  <input class="input-xlarge focused" NAME="units" type="text" >
                                                                   </div>    
 						     </div> 
                                                      <div class="control-group">								
 								  <label class="control-label" for="focusedInput">Price</label>   
                                                                   <div class="controls">
                                                                    
-                                                                  <input class="input-xlarge focused" id="productdesc" type="text" >
+                                                                  <input class="input-xlarge focused" NAME="price" type="text" >
                                                                   </div>    
 						     </div> 
                                                      <div class="control-group">
 							  <label class="control-label" for="fileInput">Upload Image</label>
 							  <div class="controls">
-								<input class="input-file uniform_on" id="fileInput" type="file">
+								<input class="input-file uniform_on" NAME="image" type="file">
 							  </div>
-							</div>  
+							</div> 
+                                                      
+                                                      <span style="width: 250px;">&nbsp;</span>
+                                               
+                                                
+                                                <button  class="btn btn-primary" type="submit">Save</button>
+                                                <span style="width: 250px;">&nbsp;</span>
+                                                <button  class="btn btn-primary" type="reset"> Clear</button>
+                                                <span style="width: 250px;">&nbsp;</span>
+                                                <a href="admin_products.jsp"><input  class="btn btn-primary" type="button" value="Cancel" name="cancel"/></a>                                               
+                                                <span style="width: 250px;">&nbsp;</span>
+                                                <br><br><br> 
+                                                
                                             </fieldset>
                                                 
                                          </form>
                                        </div>
-                                    <div style="margin-left:3cm;">
-                                                <span style="width: 250px;">&nbsp;</span>
-                                               
-                                                
-                                                <button  class="btn btn-primary" >Save</button>
-                                                <span style="width: 250px;">&nbsp;</span>
-                                                <button  class="btn btn-primary" type="reset"> Clear</button>
-                                                <span style="width: 250px;">&nbsp;</span>
-                                                <button  class="btn btn-primary" onclick="cancelAdd()">Cancel</button>
-                                                <span style="width: 250px;">&nbsp;</span>
-                                                <br><br><br>    
-						
-				       </div>
+                                    
                                 </div>
         </div>
 	<!-- new category form ends-->		
@@ -180,14 +173,6 @@
 			
 			<div id="content" class="span10">
 			<!-- content starts -->
-			
-
-			
-                                           
-					
-						
-						
-		
 	
 		<div class="modal hide fade" id="myModal">
 			<div class="modal-header">

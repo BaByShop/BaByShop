@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import JavaBeans.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,12 +30,29 @@ public class AddProductServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+       //response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println("Entered add product servlet");
         HttpSession session = request.getSession(false);
         String categoryName = (String) session.getAttribute("categoryName");
-        System.out.println("CategoryName"+"  "+categoryName);
+        Product product1 = new Product();
+        product1.setTitle(request.getParameter("title"));
+        System.out.println(request.getParameter("title"));
+        
+        product1.setImage(request.getParameter("image"));
+        product1.setDescription(request.getParameter("description"));
+        String id = request.getParameter("id");
+        String price = request.getParameter("price");
+        String units = request.getParameter("units");
+        product1.setId(Integer.parseInt(id));
+        product1.setId(Integer.parseInt(price));
+        product1.setId(Integer.parseInt(units));
+        System.out.println(id);
+        System.out.println(price);
+        System.out.println(units);
+        
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

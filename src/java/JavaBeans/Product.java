@@ -19,13 +19,8 @@ public class Product {
     String image;
     int id;
 
-    public Product(String title,int id, String description, int units, double price, String image) {
-        this.title = title;
-        this.description = description;
-        this.units = units;
-        this.price = price;
-        this.image = image;
-        this.id = id;
+    public Product() {
+       
     }
      
     
