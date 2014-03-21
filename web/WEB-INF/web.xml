@@ -30,7 +30,7 @@
     </servlet>
     <servlet>
         <servlet-name>VieProductServlet</servlet-name>
-        <servlet-class>VieProductServlet</servlet-class>
+        <servlet-class>ViewProductServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ViewCategoryServlet</servlet-name>
@@ -43,6 +43,18 @@
     <servlet>
         <servlet-name>EditProductServlet</servlet-name>
         <servlet-class>EditProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewShoppingCartServlet</servlet-name>
+        <servlet-class>ViewShoppingCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageUserServlet</servlet-name>
+        <servlet-class>ManageUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetProductCategoryServlet</servlet-name>
+        <servlet-class>GetProductCategoryServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductServlet</servlet-name>
@@ -79,6 +91,18 @@
     <servlet-mapping>
         <servlet-name>EditProductServlet</servlet-name>
         <url-pattern>/EditProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewShoppingCartServlet</servlet-name>
+        <url-pattern>/ViewShoppingCartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageUserServlet</servlet-name>
+        <url-pattern>/ManageUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetProductCategoryServlet</servlet-name>
+        <url-pattern>/GetProductCategoryServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
