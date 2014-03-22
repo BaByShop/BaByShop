@@ -49,20 +49,14 @@
 	<link href='css/elfinder.theme.css' rel='stylesheet'>
 	<link href='css/jquery.iphone.toggle.css' rel='stylesheet'>
 	<link href='css/opa-icons.css' rel='stylesheet'>
-	<link href='css/uploadify.css' rel='stylesheet'>
-
-	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-	<!-- The fav icon -->
+        <link href='css/uploadify.css' rel='stylesheet'>
 	<link rel="shortcut icon" href="img/favicon.ico">
+        
 		
 </head>
 
-<body>
-		<!-- topbar starts -->
+<body >
+		
 	<div class="navbar">
 		<div class="navbar-inner">
 			<div class="container-fluid">

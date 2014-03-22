@@ -7,10 +7,9 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/BabyShop?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
-    <mapping resource="dto/Interest.hbm.xml"/>
     <mapping resource="dto/Category.hbm.xml"/>
-    <mapping resource="dto/Product.hbm.xml"/>
-    <mapping resource="dto/User.hbm.xml"/>
     <mapping resource="dto/Purchase.hbm.xml"/>
+    <mapping resource="dto/User.hbm.xml"/>
+    <mapping resource="dto/Product.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

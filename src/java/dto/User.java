@@ -1,5 +1,5 @@
 package dto;
-// Generated Mar 21, 2014 5:50:47 PM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2014 10:14:16 AM by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -21,25 +21,24 @@ public class User  implements java.io.Serializable {
      private String address;
      private Date birthdate;
      private String job;
-     private double credit;
+     private Double credit;
      private boolean active;
      private Set purchases = new HashSet(0);
-     private Set interests = new HashSet(0);
+     private Set categories = new HashSet(0);
 
     public User() {
     }
 
 	
-    public User(int id, String fname, String lname, String email, String password, double credit, boolean active) {
+    public User(int id, String fname, String lname, String email, String password, boolean active) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.password = password;
-        this.credit = credit;
         this.active = active;
     }
-    public User(int id, String fname, String lname, String displayname, String email, String password, String address, Date birthdate, String job, double credit, boolean active, Set purchases, Set interests) {
+    public User(int id, String fname, String lname, String displayname, String email, String password, String address, Date birthdate, String job, Double credit, boolean active, Set purchases, Set categories) {
        this.id = id;
        this.fname = fname;
        this.lname = lname;
@@ -52,7 +51,7 @@ public class User  implements java.io.Serializable {
        this.credit = credit;
        this.active = active;
        this.purchases = purchases;
-       this.interests = interests;
+       this.categories = categories;
     }
    
     public int getId() {
@@ -118,11 +117,11 @@ public class User  implements java.io.Serializable {
     public void setJob(String job) {
         this.job = job;
     }
-    public double getCredit() {
+    public Double getCredit() {
         return this.credit;
     }
     
-    public void setCredit(double credit) {
+    public void setCredit(Double credit) {
         this.credit = credit;
     }
     public boolean isActive() {
@@ -139,12 +138,12 @@ public class User  implements java.io.Serializable {
     public void setPurchases(Set purchases) {
         this.purchases = purchases;
     }
-    public Set getInterests() {
-        return this.interests;
+    public Set getCategories() {
+        return this.categories;
     }
     
-    public void setInterests(Set interests) {
-        this.interests = interests;
+    public void setCategories(Set categories) {
+        this.categories = categories;
     }
 
 

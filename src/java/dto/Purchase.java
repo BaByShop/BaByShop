@@ -1,5 +1,5 @@
 package dto;
-// Generated Mar 21, 2014 5:50:47 PM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2014 10:14:16 AM by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -22,12 +22,10 @@ public class Purchase  implements java.io.Serializable {
     }
 
 	
-    public Purchase(PurchaseId id, User user, Product product, Date purchaseDate, Date addedDate, boolean ispurchased) {
+    public Purchase(PurchaseId id, User user, Product product, boolean ispurchased) {
         this.id = id;
         this.user = user;
         this.product = product;
-        this.purchaseDate = purchaseDate;
-        this.addedDate = addedDate;
         this.ispurchased = ispurchased;
     }
     public Purchase(PurchaseId id, User user, Product product, Integer amount, Date purchaseDate, Date addedDate, boolean ispurchased) {

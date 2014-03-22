@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 21, 2014 5:50:48 PM by Hibernate Tools 3.6.0 -->
+<!-- Generated Mar 22, 2014 10:14:20 AM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="dto.User" table="user" catalog="babyshop">
         <id name="id" type="int">
@@ -32,8 +32,8 @@
         <property name="job" type="string">
             <column name="job" length="100" />
         </property>
-        <property name="credit" type="double">
-            <column name="credit" precision="22" scale="0" not-null="true" />
+        <property name="credit" type="java.lang.Double">
+            <column name="credit" precision="22" scale="0" />
         </property>
         <property name="active" type="boolean">
             <column name="Active" not-null="true" />
@@ -44,12 +44,12 @@
             </key>
             <one-to-many class="dto.Purchase" />
         </set>
-        <set name="interests" table="user_has_interest" inverse="false" lazy="true" fetch="select">
+        <set name="categories" table="user_interest" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="user_id" not-null="true" />
             </key>
-            <many-to-many entity-name="dto.Interest">
-                <column name="interest_id" not-null="true" />
+            <many-to-many entity-name="dto.Category">
+                <column name="category_id" not-null="true" />
             </many-to-many>
         </set>
     </class>

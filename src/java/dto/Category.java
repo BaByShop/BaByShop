@@ -1,5 +1,5 @@
 package dto;
-// Generated Mar 21, 2014 5:50:47 PM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2014 10:14:16 AM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -13,6 +13,7 @@ public class Category  implements java.io.Serializable {
 
      private int id;
      private String name;
+     private Set users = new HashSet(0);
      private Set products = new HashSet(0);
 
     public Category() {
@@ -22,9 +23,10 @@ public class Category  implements java.io.Serializable {
     public Category(int id) {
         this.id = id;
     }
-    public Category(int id, String name, Set products) {
+    public Category(int id, String name, Set users, Set products) {
        this.id = id;
        this.name = name;
+       this.users = users;
        this.products = products;
     }
    
@@ -41,6 +43,13 @@ public class Category  implements java.io.Serializable {
     
     public void setName(String name) {
         this.name = name;
+    }
+    public Set getUsers() {
+        return this.users;
+    }
+    
+    public void setUsers(Set users) {
+        this.users = users;
     }
     public Set getProducts() {
         return this.products;

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 21, 2014 5:50:48 PM by Hibernate Tools 3.6.0 -->
+<!-- Generated Mar 22, 2014 10:14:20 AM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="dto.Purchase" table="purchase" catalog="babyshop">
         <composite-id name="id" class="dto.PurchaseId">
@@ -22,10 +22,10 @@
             <column name="amount" />
         </property>
         <property name="purchaseDate" type="timestamp">
-            <column name="purchaseDate" length="19" not-null="true" />
+            <column name="purchaseDate" length="19" />
         </property>
         <property name="addedDate" type="timestamp">
-            <column name="addedDate" length="19" not-null="true" />
+            <column name="addedDate" length="19" />
         </property>
         <property name="ispurchased" type="boolean">
             <column name="ispurchased" not-null="true" />
