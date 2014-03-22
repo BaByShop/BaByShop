@@ -6,17 +6,13 @@
 
 package dao;
 
-import static dao.CategoryDAO.session;
-import dto.Category;
-import dto.Product;
+import dto.*;
 import java.util.List;
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.criterion.Subqueries;
+
 
 /**
  *
@@ -24,15 +20,11 @@ import org.hibernate.criterion.Subqueries;
  */
 public class ProductDAO {
     
-   static Session session =null;
+   static Session session;
     public ProductDAO()
     {
-        if (session == null)
-            session = HibernateUtility.getSessionFactory().openSession();
-        else
-            session = HibernateUtility.getSessionFactory().getCurrentSession();
+        session = HibernateUtility.getSessionFactory().openSession();
     }
-    //--------------------------insert Methods------------------
     public void insertNewProduct(Product product,String categoryName)
     {    
         CategoryDAO categoryDAO = new CategoryDAO();
@@ -42,26 +34,20 @@ public class ProductDAO {
         session.beginTransaction();
         session.persist(product);  
         session.beginTransaction().commit();
-     //   session.close();
 	}
-    //--------------------------update Methods------------------
     public void updateProducct(Product product)
     {
         session.beginTransaction();
         session.saveOrUpdate(product);
-        session.beginTransaction().commit();
-      //  session.close();
+        session.getTransaction().commit();   
     }
-    //--------------------------delete Methods------------------
     public void deleteProducct (int id)
     {
         session.beginTransaction();
         Product product =retrieveProductById(id);
         session.delete(product);
-        session.beginTransaction().commit();
-        //session.close();
+        session.getTransaction().commit();
     }
-    //--------------------------select Methods------------------
     public List<Product> retrieveAllProduct()
     {
         Criteria criteria =session.createCriteria(Product.class);
@@ -78,7 +64,6 @@ public class ProductDAO {
     }
     public List<Product> retrieveProductsOrderByPrice()
     {
-        
         Criteria criteria =session.createCriteria(Product.class).addOrder(Order.asc("price"));
         List list =criteria.list();
         return list;
@@ -93,5 +78,9 @@ public class ProductDAO {
         List list =criteria.list();
         return list;
         
+    }
+    @Override
+    protected void finalize() throws Throwable {
+        session.close();
     }
 }

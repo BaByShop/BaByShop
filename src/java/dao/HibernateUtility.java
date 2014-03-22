@@ -17,15 +17,11 @@ import org.hibernate.SessionFactory;
  */
 public class HibernateUtility {
     
-    
     private static final SessionFactory sessionFactory;
-    
     static{
         sessionFactory = new Configuration().configure().buildSessionFactory();
-    
     }
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
-    
 }

@@ -18,16 +18,12 @@ import org.hibernate.criterion.Restrictions;
  */
 public class CategoryDAO {
     
-    static Session session =null;
+    static Session session;
+    
     public CategoryDAO()
     {
-        if (session == null)
         session = HibernateUtility.getSessionFactory().openSession();
-        else
-        session = HibernateUtility.getSessionFactory().getCurrentSession();
     }
-    //--------------------------select Methods------------------
-    
     public Category retrieveCaegoryByName(String name)
     {
         Criteria criteria =session.createCriteria(Category.class).add(Restrictions.eq("name", name));

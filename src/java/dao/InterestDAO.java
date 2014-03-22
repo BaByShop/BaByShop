@@ -7,23 +7,18 @@
 package dao;
 
 import org.hibernate.Session;
-
+import dto.*;
 /**
  *
  * @author Nourhan
  */
 public class InterestDAO {
  
-    static Session session =null;
+    static Session session;
     public InterestDAO()
     {
-        if (session == null)
             session = HibernateUtility.getSessionFactory().openSession();
-        else
-            session = HibernateUtility.getSessionFactory().getCurrentSession();
     }
-    
-    
     //--------------------------insert Methods------------------
     //--------------------------update Methods------------------
     //--------------------------delete Methods------------------

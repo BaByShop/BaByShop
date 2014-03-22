@@ -19,52 +19,62 @@ import org.hibernate.criterion.Restrictions;
  */
 public class UserDAO {
     
-    static Session session =null;
+    static Session session;
     public UserDAO()
     {       
         session = HibernateUtility.getSessionFactory().openSession();
     }
-    
-//--------------------------insert---------------------------------------------
     public void signUp(User user)
     {
         session.beginTransaction();
         session.persist(user);  
         session.getTransaction().commit();
     }
-//--------------------------update---------------------------------------------------------
-
-public void updateProfile(User user)
-{
+    public void updateProfile(User user)
+    {
     session.beginTransaction();
     session.saveOrUpdate(user);
     session.getTransaction().commit();
 }
-public void activeUser(User user)
-{
-    
-    
-    
+    public void activeUser(User user)
+    {
+    user.setActive(true);
+    session.beginTransaction();
+    session.merge(user);
+    session.saveOrUpdate(user);
+    session.getTransaction().commit();
 }
-public void deactivateUser(User user)
-{
-    
+    public void deactivateUser(User user)
+    {
+    user.setActive(false);
+    session.beginTransaction();
+    session.saveOrUpdate(user);
+    session.getTransaction().commit();
 }
-//--------------------------select---------------------
     public User retrieveUserById(int id)
     {
+        try{
         Criteria criteria =session.createCriteria(User.class)
                 .add(Restrictions.eq("id", id));
         List list =criteria.list();
         User user =(User)list.get(0);
         return user;
+        }catch(Exception ex)
+        {
+            return null;
+        }
     }
-    
     public List retrieveAllUsers()
     {
-        Criteria criteria =session.createCriteria(User.class);
-        List list =criteria.list();
-        return list;
+        try{
+            Criteria criteria =session.createCriteria(User.class);
+            List list =criteria.list();
+            return list;
+            }
+        catch(Exception ex)
+        {
+            return null;
+        }
     }
     public User singIn(String email, String password)
     {
@@ -81,4 +91,11 @@ public void deactivateUser(User user)
             return null;
         }
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+    session.close();
+    }
+    
+    
 }
