@@ -6,11 +6,11 @@
 
 package dao;
 
-
-import dto.User;
+import dto.*;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 
 /**
@@ -21,35 +21,64 @@ public class UserDAO {
     
     static Session session =null;
     public UserDAO()
-    {
-        if (session == null)
-            session = HibernateUtility.getSessionFactory().openSession();
-        else
-            session = HibernateUtility.getSessionFactory().getCurrentSession();
+    {       
+        session = HibernateUtility.getSessionFactory().openSession();
     }
     
-    //--------------------------insert------------------
+//--------------------------insert---------------------------------------------
     public void signUp(User user)
     {
         session.beginTransaction();
         session.persist(user);  
-        session.beginTransaction().commit();
-     //   session.close();
-	}
+        session.getTransaction().commit();
+    }
+//--------------------------update---------------------------------------------------------
 
-    //--------------------------update---------------------
-    //--------------------------delete---------------------
-    //--------------------------select---------------------
-    /*public List sellcted()
-    {
-        session.beginTransaction();
-        Criteria criteria =session.createCriteria(User.class);
-                //.add(Restrictions.like("models",""));
-        
-        
-        session.getTransaction().commit();    
-        return list;
-       }
+public void updateProfile(User user)
+{
+    session.beginTransaction();
+    session.saveOrUpdate(user);
+    session.getTransaction().commit();
+}
+public void activeUser(User user)
+{
     
-    */
+    
+    
+}
+public void deactivateUser(User user)
+{
+    
+}
+//--------------------------select---------------------
+    public User retrieveUserById(int id)
+    {
+        Criteria criteria =session.createCriteria(User.class)
+                .add(Restrictions.eq("id", id));
+        List list =criteria.list();
+        User user =(User)list.get(0);
+        return user;
+    }
+    
+    public List retrieveAllUsers()
+    {
+        Criteria criteria =session.createCriteria(User.class);
+        List list =criteria.list();
+        return list;
+    }
+    public User singIn(String email, String password)
+    {
+        try
+        {
+            Criteria criteria =session.createCriteria(User.class)
+                .add(Restrictions.eq("email", email))
+                .add(Restrictions.eq("password", password));
+        User user =(User)criteria.list().get(0);
+        return user;
+        }
+        catch(Exception ex)
+        {
+            return null;
+        }
+    }
 }

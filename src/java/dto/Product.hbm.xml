@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 22, 2014 10:14:20 AM by Hibernate Tools 3.6.0 -->
+<!-- Generated Mar 22, 2014 7:05:22 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="dto.Product" table="product" catalog="babyshop">
         <id name="id" type="int">
@@ -22,6 +22,9 @@
         </property>
         <property name="photo" type="string">
             <column name="photo" length="250" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="150" />
         </property>
         <set name="purchases" table="purchase" inverse="true" lazy="true" fetch="select">
             <key>
